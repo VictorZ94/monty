@@ -84,7 +84,8 @@ int delete_dnodeint_at_index(stack_t **head, unsigned int index)
 	}
 	temp = current->next;
 	current->next = temp->next;
-	temp->next->prev = current;
+	if (temp->next != NULL)
+		temp->next->prev = current;
 	free(temp);
 	return (1);
 }
