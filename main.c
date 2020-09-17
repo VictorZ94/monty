@@ -37,7 +37,7 @@ void read_file(stack_t **stack, char *filename)
 	char *line = NULL;  /*  for getline */
 	FILE *fd;  /*File descriptor */
 	char *token = NULL;
-	int line_number = 0;
+	int line_number = 1;
 	instruct_func func; /* This contain all pointer function */
 
 	fd = fopen(filename, "r");
@@ -48,8 +48,13 @@ void read_file(stack_t **stack, char *filename)
 	}
 	while ((read = getline(&line, &len, fd)) != EOF)
 	{
-		line_number++;
+		
 		token = strtok(line, "\n ");
+		if (token == NULL)
+		{
+			line_number++;
+			continue;
+		}
 		func = get_op_func(token);
 		if (!func)
 		{
@@ -57,7 +62,7 @@ void read_file(stack_t **stack, char *filename)
 			exit_error(*stack);
 		}
 		func(stack, line_number);
-
+		line_number++;
 	}
 	fclose(fd);
 	free(line);
