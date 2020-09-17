@@ -37,3 +37,26 @@ void _pop(stack_t **stack, unsigned int line_number)
 	*stack = (*stack)->next;
 	free(current);
 }
+
+/**
+ * _swap - chance two number of node
+ * @stack: top of the stack
+ * @line_number: line number
+ *
+ * Return Void
+ */
+void _swap(stack_t **stack, unsigned int line_number)
+{
+	size_t check;
+	int tmp;
+
+	check = dlistint_len(*stack);
+	if (check < 2)
+	{
+		fprintf(stderr, "L%d: can't swap, stack too short\n", line_number);
+		exit(EXIT_FAILURE);
+	}
+	tmp = (*stack)->n;
+	(*stack)->n = (*stack)->next->n;
+	(*stack)->next->n = tmp;
+}

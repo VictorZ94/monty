@@ -49,11 +49,13 @@ void _push(stack_t **stack, unsigned int line_number);
 void _pall(stack_t **stack, unsigned int line_number);
 void _pint(stack_t **stack, unsigned int line_number);
 void _pop(stack_t **stack, unsigned int line_number);
+void _swap(stack_t **stack, unsigned int line_number);
 int _isnumber(char *);
 void exit_error(stack_t *stack);
 
 /******** linked list - stack  *********/
 stack_t *add_dnodeint(stack_t **head, const int n);
 void free_dlistint(stack_t *head);
+size_t dlistint_len(const stack_t *h);
 
 #endif /* Monty project */

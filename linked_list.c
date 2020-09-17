@@ -38,3 +38,17 @@ void free_dlistint(stack_t *head)
 	free_dlistint(head->next);
 	free(head);
 }
+
+/**
+ * dlistint_len - return numbers of nodes.
+ * @h: pointer to head
+ *
+ * Return: Always EXIT_SUCCESS.
+ */
+size_t dlistint_len(const stack_t *h)
+{
+	if (h == NULL)
+		return (0);
+
+	return (1 + (dlistint_len(h->next)));
+}
