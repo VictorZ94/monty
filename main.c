@@ -43,7 +43,7 @@ void read_file(stack_t **stack, char *filename)
 	fd = fopen(filename, "r");
 	if (!fd)
 	{
-		printf("Error: Can't open file %s\n", filename);
+		fprintf(stderr, "Error: Can't open file %s\n", filename);
 		exit(EXIT_FAILURE);
 	}
 	while ((read = getline(&line, &len, fd)) != EOF)
@@ -58,7 +58,7 @@ void read_file(stack_t **stack, char *filename)
 		func = get_op_func(token);
 		if (!func)
 		{
-			printf("L%d: unknown instruction %s\n", line_number, line);
+			fprintf(stderr, "L%d: unknown instruction %s\n", line_number, line);
 			exit_error(*stack);
 		}
 		func(stack, line_number);

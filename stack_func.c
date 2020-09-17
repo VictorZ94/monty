@@ -45,7 +45,7 @@ void _push(stack_t **stack, unsigned int line_number)
 	}
 	else
 	{
-		printf("L%d: usage: push integer\n", line_number);
+		fprintf(stderr, "L%d: usage: push integer\n", line_number);
 		exit_error(*stack);
 	}
 	add_dnodeint(stack, push_arg);
