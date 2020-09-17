@@ -60,3 +60,27 @@ void _swap(stack_t **stack, unsigned int line_number)
 	(*stack)->n = (*stack)->next->n;
 	(*stack)->next->n = tmp;
 }
+
+/**
+ * _add - function add two integer
+ * @stack: top of the stack
+ * @line_number: line number
+ *
+ * Return: Void.
+ */
+void _add(stack_t **stack, unsigned int line_number)
+{
+	size_t check;
+	int tmp;
+
+	check = dlistint_len(*stack);
+	if (check < 2)
+	{
+		fprintf(stderr, "L%d: can't add, stack too short\n", line_number);
+		exit(EXIT_FAILURE);
+	}
+	tmp = (*stack)->n + (*stack)->next->n;
+	add_dnodeint(stack, tmp);
+	delete_dnodeint_at_index(stack, 1);
+	delete_dnodeint_at_index(stack, 1);
+}
