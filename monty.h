@@ -47,6 +47,7 @@ instruct_func get_op_func(char *str);
 void read_file(stack_t **stack, char *filename);
 void _push(stack_t **stack, unsigned int line_number);
 void _pall(stack_t **stack, unsigned int line_number);
+void _pint(stack_t **stack, unsigned int line_number);
 int _isnumber(char *);
 void exit_error(stack_t *stack);
 

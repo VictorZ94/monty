@@ -57,7 +57,7 @@ void read_file(stack_t **stack, char *filename)
 		func = get_op_func(token);
 		if (!func)
 		{
-			fprintf(stderr, "L%d: unknown instruction %s\n", line_number, line);
+			fprintf(stderr, "L%d: unknown instruction %s\n", line_number, token);
 			free(line);
 			fclose(fd);
 			exit_error(*stack);
