@@ -48,7 +48,6 @@ void read_file(stack_t **stack, char *filename)
 	}
 	while ((read = getline(&line, &len, fd)) != EOF)
 	{
-		
 		token = strtok(line, "\n ");
 		if (token == NULL)
 		{
@@ -59,6 +58,8 @@ void read_file(stack_t **stack, char *filename)
 		if (!func)
 		{
 			fprintf(stderr, "L%d: unknown instruction %s\n", line_number, line);
+			free(line);
+			fclose(fd);
 			exit_error(*stack);
 		}
 		func(stack, line_number);
