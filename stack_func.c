@@ -14,6 +14,7 @@ instruct_func get_op_func(char *str)
 		{"push", _push},
 		{"pall", _pall},
 		{"pint", _pint},
+		{"pop", _pop},
 		{NULL, NULL}
 	};
 
@@ -22,7 +23,6 @@ instruct_func get_op_func(char *str)
 	{
 		i++;
 	}
-
 	return (instruct[i].f);
 }
 
