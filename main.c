@@ -48,15 +48,16 @@ void read_file(stack_t **stack, char *filename)
 	}
 	while ((read = getline(&line, &len, fd)) != EOF)
 	{
+		line_number++;
 		token = strtok(line, "\n ");
 		func = get_op_func(token);
 		if (!func)
 		{
 			printf("L%d: unknown instruction %s\n", line_number, line);
-			exit(EXIT_FAILURE);
+			exit_error(*stack);
 		}
 		func(stack, line_number);
-		line_number++;
+
 	}
 	fclose(fd);
 	free(line);

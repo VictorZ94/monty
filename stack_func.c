@@ -46,7 +46,7 @@ void _push(stack_t **stack, unsigned int line_number)
 	else
 	{
 		printf("L%d: usage: push integer\n", line_number);
-		exit(EXIT_FAILURE);
+		exit_error(*stack);
 	}
 	add_dnodeint(stack, push_arg);
 }
@@ -96,4 +96,17 @@ int _isnumber(char *str)
 		i++;
 	}
 	return (1);
+}
+
+/**
+ * exit_error - function to freed memory
+ * @stack: pointer at the top
+ *
+ */
+void exit_error(stack_t *stack)
+{
+
+	if (stack != NULL)
+		free_dlistint(stack);
+	exit(EXIT_FAILURE);
 }

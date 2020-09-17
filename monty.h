@@ -48,6 +48,7 @@ void read_file(stack_t **stack, char *filename);
 void _push(stack_t **stack, unsigned int line_number);
 void _pall(stack_t **stack, unsigned int line_number);
 int _isnumber(char *);
+void exit_error(stack_t *stack);
 
 /******** linked list - stack  *********/
 stack_t *add_dnodeint(stack_t **head, const int n);
