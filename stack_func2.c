@@ -84,3 +84,16 @@ void _add(stack_t **stack, unsigned int line_number)
 	delete_dnodeint_at_index(stack, 1);
 	delete_dnodeint_at_index(stack, 1);
 }
+
+/**
+ * _nop - literally does do nothing
+ * @stack: top of the stack
+ * @line_number: line number
+ *
+ * Return: Void.
+ */
+void _nop(__attribute__((unused)) stack_t **stack,
+		__attribute__((unused)) unsigned int line_number)
+{
+
+}
