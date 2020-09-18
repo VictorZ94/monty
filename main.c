@@ -49,7 +49,7 @@ void read_file(stack_t **stack, char *filename)
 	while ((read = getline(&line, &len, fd)) != EOF)
 	{
 		token = strtok(line, "\n ");
-		if (token == NULL)
+		if (token == NULL || token[0] == '#')
 		{
 			line_number++;
 			continue;
